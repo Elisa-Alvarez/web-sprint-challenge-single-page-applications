@@ -2,6 +2,7 @@ import React, {useState,useEffect} from "react"
 import {Route,Switch,Link} from 'react-router-dom'
 import Home from './components/Home'
 import Pizza from './components/Pizza'
+import Confirm from './components/confirm'
 import formSchema from './validation/schema'
 import { v4 as uuid } from 'uuid'
 import axios from 'axios'
@@ -53,7 +54,20 @@ const App = () => {
     })
 }
 
+const postNewOrder= newOrder =>{
+  axios.post('https://http://localhost:3000/confirm', newOrder)
+  .then(res => {
+    setOrder([...orderConfirm, res.data])
+    
+  })
+  .catch(err => {
+    debugger
+  })
+  .finally(() => {
+    setPizzaForm(pizzaFormValue)
+  })
   
+}
 
   const onInputChange = evt => {
    
@@ -94,6 +108,7 @@ const App = () => {
       setPizzaForm({
         ...pizzaForm, 
         [name]:checked,
+        [name]:checked,
       })
       
     
@@ -106,12 +121,9 @@ const App = () => {
       first_name: pizzaForm.first_name.trim(),
       last_name: pizzaForm.last_name.trim(),
       email: pizzaForm.email.trim(),
-      
-      
-      
-        
+       
     }
-    
+     postNewOrder(newOrder)
    
   }
  
@@ -158,8 +170,8 @@ const App = () => {
               disabled={disable}
               popUpError={errors} />
       </Route>
-      <Route path="/comfirmation">
-
+      <Route path="/confirm">
+      <Confirm  />
       </Route>
     </Switch>
     </div>

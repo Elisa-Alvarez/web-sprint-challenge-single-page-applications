@@ -17,9 +17,7 @@ email: Yup
   .string()
   .email("Must be a valid email address.")
   .required("Must include email address."),
-Toppings: Yup
-  .boolean()
-  .oneOf([true], "Please select a topping"),
+
 
   text:Yup
   .string()
