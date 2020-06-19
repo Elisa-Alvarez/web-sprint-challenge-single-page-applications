@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 
 function Pizza (props) {
@@ -82,7 +83,7 @@ function Pizza (props) {
             name='pepperoni'
             type="checkbox"
             onChange={onCheckboxChange}
-            checked={values.Toppings.pepperoni}
+            checked={values.pepperoni}
           />
         </label>
 
@@ -91,7 +92,7 @@ function Pizza (props) {
             name='sasage'
             type="checkbox"
             onChange={onCheckboxChange}
-            checked={values.Toppings.sasage}
+            checked={values.sasage}
           />
         </label>
 
@@ -100,7 +101,7 @@ function Pizza (props) {
             name='pineapple'
             type="checkbox"
             onChange={onCheckboxChange}
-            checked={values.Toppings.pineapple}
+            checked={values.pineapple}
           />
         </label>
         <label>Bacon
@@ -108,7 +109,7 @@ function Pizza (props) {
             name='bacon'
             type="checkbox"
             onChange={onCheckboxChange}
-            checked={values.Toppings.bacon}
+            checked={values.bacon}
           />
         </label>
       </div>
@@ -136,8 +137,9 @@ function Pizza (props) {
             checked={values.Terms.Terms}
           />
         </label>
+        <Link to='/confirm'>
         <button disabled={disabled}>submit</button>
-
+        </Link>
       
         </div>
         </div>
